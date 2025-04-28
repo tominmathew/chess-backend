@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: chess-backend
+  data:
+    mongodb:
+      uri: mongodb+srv://tomincherukara:Nidhin%40jose07@cluster0.sblzgnn.mongodb.net/chessdb?retryWrites=true&w=majority&appName=Cluster0
+  main:
+    web-application-type: reactive
+
+kafka:
+  consumer:
+    bootstrap-servers: localhost:9092 # Replace with your Kafka bootstrap servers
+    group-id: chessGroup
+  producer:
+    bootstrap-servers: localhost:9092 # Replace with your Kafka bootstrap servers
+  listener:
+    concurrency: 3 # You can configure the concurrency for consumers if needed
+  properties:
+    key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  template:
+    default-topic: chess-moves  # Default topic for producing messages
+
+server:
+  port: 8081
